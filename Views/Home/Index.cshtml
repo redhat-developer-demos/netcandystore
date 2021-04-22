@@ -1,0 +1,36 @@
+﻿@model IEnumerable<NetCandyStore.Models.ProductCategory>
+
+<!DOCTYPE html>
+
+<p>
+    <h1>Search</h1>
+    @using (Html.BeginForm("SearchByKeyword", "Search", FormMethod.Post))
+    {
+        <b>Search for: </b> @Html.TextBox("searchTerm")
+        <input type="submit" value="Search"/>
+    }
+</p>
+    <p>
+        <h1>Choose a Category</h1>
+    </p>
+    <table class="table">
+        @{
+            if (Model is null)
+            {
+                <h1>Error: Service "getcategories" not found</h1>
+                <h2>Hint: Environment Variable 'categoriesMicroserviceURL' is not set.</h2>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.displayName, "SearchByCategory", "Search", new { categoryId = item.Id }, null)
+                        </td>
+                    </tr>
+                }
+            }
+        }
+
+    </table>

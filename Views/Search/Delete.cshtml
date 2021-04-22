@@ -1,0 +1,88 @@
+﻿@model NetCandyStore.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.isActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itemPackageType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itemPackageType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityPerPackage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityPerPackage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.keywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keywords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageURL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

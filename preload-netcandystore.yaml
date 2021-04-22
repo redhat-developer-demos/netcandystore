@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: windows-image-pull
+  namespace: openshift-windows-machine-config-operator
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /tmp/ssh/private-key.pem administrator@{jacksparrow} docker pull mcr.microsoft.com/dotnet/framework/aspnet:4.8
+        image: quay.io/redhatworkshops/winc-ssh:latest
+        name: windows-image-pull
+        volumeMounts:
+        - name: sshkey
+          mountPath: "/tmp/ssh"
+          readOnly: true
+        resources: {}
+      volumes:
+      - name: sshkey
+        secret:
+          secretName: cloud-private-key
+          defaultMode: 0400

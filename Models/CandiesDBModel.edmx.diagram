@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84f442ca5e114d99979cb97251de44e6" Name="Diagram1">
+        <EntityTypeShape EntityType="CandiesDBModel.database_firewall_rules" Width="3.25" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="CandiesDBModel.ProductCategory" Width="2.75" PointX="3.875" PointY="2.375" />
+        <EntityTypeShape EntityType="CandiesDBModel.Product" Width="3.25" PointX="0.5" PointY="3.375" />
+        <EntityTypeShape EntityType="CandiesDBModel.ShoppingCart" Width="3.25" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CandiesDBModel.ShoppingCartItem" Width="3.25" PointX="6.75" PointY="0.625" />
+        <EntityTypeShape EntityType="CandiesDBModel.StatusCode" Width="3.25" PointX="6.875" PointY="4.5" />
+        <EntityTypeShape EntityType="CandiesDBModel.vwProduct" Width="3.25" PointX="10.375" PointY="0.625" />
+        <EntityTypeShape EntityType="CandiesDBModel.vwShoppingCart" Width="3.25" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CandiesDBModel.vwShoppingCartItem" Width="3.25" PointX="10.5" PointY="6" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

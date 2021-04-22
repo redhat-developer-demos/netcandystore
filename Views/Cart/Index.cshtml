@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NetCandyStore.Models.GetShoppingCartItems_Result>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Shopping Cart Items</h2>
+
+<input type="button" value="Continue Shopping" onclick="location.href='@Url.Action("Index", "Home")'" />
+<input type="button" value="Buy Now" onclick="location.href='@Url.Action("BuyNow", "Cart")'" />
+
+<table class="table">
+    <tr>
+        <th>
+            Item
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Total ($$)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.displayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LineItemTotal)
+            </td>
+        </tr>
+    }
+
+</table>

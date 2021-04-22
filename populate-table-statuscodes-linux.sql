@@ -1,0 +1,5 @@
+USE CandiesDB;
+BULK INSERT dbo.StatusCodes FROM '/tmp/StatusCodes.csv' WITH (FORMAT='CSV',FIELDTERMINATOR=',',ROWTERMINATOR = '\n',KEEPIDENTITY);
+GO
+SELECT * FROM dbo.StatusCodes;
+GO

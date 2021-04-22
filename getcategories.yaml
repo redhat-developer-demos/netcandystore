@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: getcategories
+  labels:
+    app: getcategories
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: getcategories
+  template:
+    metadata:
+      labels:
+        app: getcategories
+        deploymentconfig: getcategories
+    spec:
+      containers:
+        - name: getcategories
+          image: >-
+            quay.io/donschenck/getcategories@sha256:c8f3026ee6f88299580ffac278d0190926634a045985f47728ae051e4bca0c90
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: DBConnectionString
+              value: >-
+                Server=mssql;Initial Catalog=CandiesDB;Persist Security
+                Info=False;User ID=sa;Password=reallylongpassword99!;
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: getcategories
+  labels:
+    app: getcategories
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: getcategories
+    deploymentconfig: getcategories
+status:
+  loadBalancer: {}

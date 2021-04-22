@@ -1,0 +1,74 @@
+﻿@model IEnumerable<NetCandyStore.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.statusCodeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.displayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.itemPackageType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantityPerPackage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.keywords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imageURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusCodeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.displayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.itemPackageType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantityPerPackage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keywords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imageURL)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Add to cart", "AddToCart", "Cart", new { id = item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,90 @@
+﻿@model NetCandyStore.Models.ShoppingCart
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Payment</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>ShoppingCart</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.cartGUID)
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    Name
+                    @Html.EditorFor(model => model.buyerName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    Address
+                    @Html.EditorFor(model => model.buyerAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerAddress1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.buyerAddress2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerAddress2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    City
+                    @Html.EditorFor(model => model.buyerCity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerCity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    State
+                    @Html.EditorFor(model => model.buyerState, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerState, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10">
+                    Zip Code
+                    @Html.EditorFor(model => model.buyerZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.buyerZipCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-10" style="font-weight: bold; font-size:large">
+                    Total:
+                    @Html.DisplayFor(model => model.cartTotal)
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @using (Html.BeginForm("SubmitPayment", "Cart", FormMethod.Post))
+                    {
+                        @Html.ActionLink("Submit Payment", "SubmitPayment")
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to Cart", "BuyNow")
+    </div>
+</body>
+</html>

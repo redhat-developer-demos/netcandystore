@@ -1,0 +1,82 @@
+﻿@model NetCandyStore.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.statusCodeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusCodeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.displayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.displayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itemPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.itemPackageType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.itemPackageType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityPerPackage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityPerPackage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.keywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.keywords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
